@@ -1,41 +1,62 @@
 package modelo.conexion;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-/**
- * Servlet implementation class ConexionBDD
- */
-@WebServlet("/ConexionBDD")
-public class ConexionBDD extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ConexionBDD() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public class conexionBDD {
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private static conexionBDD conexionClass = null;
+
+	private static Connection instancia = null;
+
+	private conexionBDD() {
+		try {
+			if (instancia == null) {
+				String servidor = "localhost";
+				String database = "rpv2";
+				String usuario = "root";
+				String clave = "";
+
+				String url = "jdbc:mysql://" + servidor + "/" + database;
+
+				DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+				instancia=DriverManager.getConnection(url,usuario,clave);
+				System.out.println("Conexion Realizada");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	public static Connection getConexion() {
+		if (instancia == null) {
+			conexionClass = new conexionBDD();
+		}
 
+		return instancia;
+	}
+	
+	public static void cerrar(ResultSet rs) {
+		try {
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rs=null;
+	}
+	
+	public static void cerrar(PreparedStatement pstat) {
+		try {
+			pstat.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pstat=null;
+	}
 }

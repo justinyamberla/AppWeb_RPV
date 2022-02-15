@@ -1,0 +1,218 @@
+input[type=submit] {
+    background-color: rgb(84, 133, 254);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+  }
+  input[type=button] {
+    background-color: #af684c;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+  }
+
+  label{
+      display: block;
+      margin: 10px 0;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 17px;
+  }
+/* formato para formularios */
+  .formClaseLogin,.ConsultarMultas,.formRegistrarVehiculo,.formActualizarVehiculo,.formIngresarDeudaVehiculo{
+      margin: 2rem auto;
+      max-width: 400px;
+      border: 3px #4CAF50;
+      padding: 2rem;
+
+  }
+
+
+  
+  
+  
+  #tituloBienvenidos{
+    font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+/* modulo consutas */
+
+form[class=formClaseConsultaMULTAS]{
+    margin: 3rem auto;
+    max-width: 600px;
+    border: 3px #4CAF50;
+    padding: 2rem;
+
+}
+#txtDatoConsultar {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+/* muldulo Lista Vehiculos */
+#idBotonNuevoVehiculo{
+    text-align: right;
+    background-color: rgb(84, 133, 254);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    margin-left: 50%;           /* boton */
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+/* idDivTableListaVehiculos */
+
+#idDivModuloAdministracion{
+    margin: 2rem auto;
+    max-width: 60%;
+    border: 3px #4CAF50;
+    padding: 2rem;
+
+}
+
+table[id=idTableListaVehiculos] {
+    border: 1px solid;
+    width: 70%;
+    height: 70px;
+    margin-bottom: 10%;
+
+  }
+
+  td {
+    text-align: center;
+  }
+  
+    /* tr:hover{background-color: rgb(84, 133, 254)}  al pasar el mouse por las filas se ilumina  */
+
+    /* Consulta Vehiculo */
+
+    #idDivModuloConsulta{
+        margin: 2rem auto;
+        max-width: 60%;
+        border: 3px #4CAF50;
+        padding: 3rem;
+    
+    }
+
+    table[id=idTablaSinBorde]{
+        border: 2px ;
+        width: 70%;
+        height: 70px;
+            }
+
+    table[id=idTablaConBorde]{
+        border: 2px solid;
+        width: 60%;
+        height: 70px;
+        margin-bottom: 10%;
+        }
+
+ /* DeudasVehiculo */
+
+ #idBotonNuevaDeuda{
+    text-align: right;
+    background-color: rgb(84, 133, 254);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    margin-left: 43%;           /* boton */
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+
+/* clase REGISTRAR veHICULO*/
+input[class=RegistrarClassInputTxt] {
+    width: 50%;
+    height:17px;
+    margin:0 13px 0 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 17px;
+  }
+
+  label[class=RegistrarClassLabel]{
+    display: block;
+    margin: 10px ;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* ActualizarVehiculo*/
+
+#txtPlacaNoEditable{
+  pointer-events: none;
+  color:#ad8383;
+  height:17px;
+  margin:0 13px 0 0;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+
+input[class=ActualizarClassInputTxt] {
+  width: 50%;
+  height:17px;
+  margin:0 13px 0 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+label[class=ActualizarClassInputTxt]{
+  display: block;
+  margin: 10px ;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* ingresar Deuda*/
+
+input[class=IngresarDeudaClassInputTxt] {
+  width: 50%;
+  height:17px;
+  margin:0 13px 0 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+label[class=IngresarDeudaClassLabell]{
+  display: block;
+  margin: 10px ;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+

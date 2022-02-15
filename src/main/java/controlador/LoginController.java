@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modelo.dao.AdministradorDAO;
+import modelo.entidades.Administrador;
 
 /**
  * Servlet implementation class LoginController
@@ -14,28 +18,33 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public LoginController() {
-        super();
-        // TODO Auto-generated constructor stub
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		getServletContext().getRequestDispatcher("/jsp/inicio.jsp").forward(request,response);
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String usuario = request.getParameter("txtUsuario");
+		String clave = request.getParameter("txtClave");
+		
+		
+		AdministradorDAO adminDAO = new AdministradorDAO();
+		Administrador adminAut= adminDAO.autenticar(usuario,clave);
+		
+		if (adminAut!= null) {
+			HttpSession miSesion = request.getSession();
+			miSesion.setAttribute("usuario", adminAut);
+			request.getRequestDispatcher("ListarVehiculoController").forward(request, response);
+		}else{
+			response.sendRedirect("index.html");
+		}
 	}
 
 }
