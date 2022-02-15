@@ -34,27 +34,40 @@
 </head>
 <body>
 	<c:set var="v" value="${vehiculo}" />
-	${v.getPlaca()}
-	${v.getMarca()}
-	${v.getAño()}
-	${v.getModelo()}
-	${v.getChasis()}
-	${v.getPropietario()}
-	<table>
-		<tr>
-			<td>Placa</td>
-			<td>Valor</td>
-			<td>Año</td>
-			<td>Descripcion</td>
-		</tr>
-		<c:forEach items="${multas}" var="m">
+			<table>
 			<tr>
-				<td>${m.getPlaca()}</td>
-				<td>${m.getValor()}</td>
-				<td>${m.getAño()}</td>
-				<td>${m.getDescripcion()}</td>
+			<td style="font-weight: bold">Placa</td>
+			<td style="font-weight: bold">Marca</td>
+			<td style="font-weight: bold">Año</td>
+			<td style="font-weight: bold">Modelo</td>
+			<td style="font-weight: bold">Chasis</td>
+			<td style="font-weight: bold">Propietario</td>
 			</tr>
-		</c:forEach>
+			<tr>
+			<td>${v.getPlaca()}</td>
+			<td>${v.getMarca()}</td>
+			<td>${v.getAño()}</td>
+			<td>${v.getModelo()}</td>
+			<td>${v.getChasis()}</td>
+			<td>${v.getPropietario()}</td>
+			</tr>
+			</table>
+			<h2>Multas de Vehículo</h2>
+			<table>
+			<tr>
+			<td style="font-weight: bold">Placa</td>
+			<td style="font-weight: bold">Valor</td>
+			<td style="font-weight: bold">Año</td>
+			<td style="font-weight: bold">Descripcion</td>
+			</tr>
+			<c:forEach items="${multas}" var="m">
+			<tr>
+			<td>${m.getPlaca()}</td>
+			<td>${m.getValor()}</td>
+			<td>${m.getAño()}</td>
+			<td>${m.getDescripcion()}</td>
+			</tr>
+</c:forEach>
 	</table>
 </body>
 </html>
